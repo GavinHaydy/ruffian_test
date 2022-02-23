@@ -19,10 +19,10 @@ setup(name='ruffianTest',  # 你包的名称
       packages=find_packages(),
       platforms=['all'],  # 平台
       classifiers=[
-          'Intended Audience :: Testers',
+          'Intended Audience :: Developers',
           'Operating System :: OS Independent',
           'Natural Language :: Chinese (Simplified)',
-          'Programming Language :: Python :: 3.0',
-          'Topic :: Software Test :: Libraries'
+          'Programming Language :: Python :: 3',
+          'Topic :: Software Development :: Testing'
       ],
       )
