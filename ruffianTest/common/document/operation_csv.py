@@ -62,8 +62,8 @@ class OperationCSV:
     def write_value(self, values, headers=None):
         """
 
-        :param values:
-        :param headers:
+        :param values: [(),()...]
+        :param headers: dict
         :return:
         """
         if headers is None:
@@ -75,7 +75,3 @@ class OperationCSV:
                 f_write = csv.writer(file)
                 f_write.writerow(headers)
                 f_write.writerows(values)
-        """
-            s = OperationCSV('{path}.csv')
-            s.write_value([('1', '18', '测试'), ('2', '20', '没bug')], {'id', 'age', 'name'})
-        """
