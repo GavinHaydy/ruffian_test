@@ -5,6 +5,13 @@ from email.mime.text import MIMEText
 
 class SendMail:
     def __init__(self, server, port, email, password):
+        """
+
+        :param server: 服务器主机
+        :param port:    端口
+        :param email:
+        :param password:
+        """
         self.smtp = smtplib.SMTP()
         self.smtp.connect(server, port)
         self.smtp.login(email, password)
@@ -31,10 +38,10 @@ class SendMail:
         try:
             self.smtp.sendmail(form_mail, to_mail, msg.as_string())  # 参数 1: 发送的邮箱， 2 接收的邮箱
             self.smtp.quit()
-            print('邮件发送成功')
+            return '邮件发送成功'
         except smtplib.SMTPException:
             self.smtp.quit()
-            print('邮件发送失败')
+            return '邮件发送失败'
 
 
 """
