@@ -29,7 +29,7 @@ class OperationExcel:
         elif start_row == end_row and start_col == end_col:
             results = self.get_value(start_row, start_col)
         else:
-            results = '参数错误'
+            raise ValueError(f'start_row must ≤ end_row and start_col must  ≤ end_col ')
         return results
 
 
