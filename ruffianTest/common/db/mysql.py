@@ -2,7 +2,7 @@ import pymysql
 
 
 class Mysql:
-    def __init__(self, host, user, password, database, charset="utf8"):
+    def __init__(self, host, user, password, database=None, charset="utf8"):
         self.conn = pymysql.connect(
             host=host,
             user=user,
@@ -39,7 +39,11 @@ class Mysql:
             self.conn.commit()
             self.cursor.close()
 
-
+    def database_and_table_operation(self, statements):
+        '''
+        :param statements: your sql statements
+        '''
+        self.cursor.execute(statements)
 '''
     Example 1
     s = Mysql('host', 'user', 'pwd', 'database')
@@ -54,5 +58,11 @@ class Mysql:
         ('marin', '369')
     ]
     s1 = s.data_operation('insert into userinfo(user,pwd) values(%s,%s)', data)
-
+    
+    # Example 3  database and table operation
+    s = Mysql('host', 'user', 'pwd')
+    s.database_and_table_operation('create database if not exists test')
+    s.database_and_table_operation('use test')
+    s.database_and_table_operation('create table if not exists userinfo(user varchar(20),pwd varchar(20))')
+    s.conn.close()
     '''
